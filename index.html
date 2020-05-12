@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title></title>
     <link rel="stylesheet" href="stylesheet.css">
 
 </head>
@@ -13,11 +13,12 @@
 <div class=main>
 
 
-    <body>
+    <body id="wholeBody">
         <h1> hello </h1>
 
         <button id="animal-button">Animal Button</button>
         <button id="marvel-button">Marvel Button</button>
+        <button id="cake-button">Cake Button</button>
         <div id="images">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script type="text/javascript">
@@ -47,33 +48,61 @@
 
                             $("#images").prepend(animalImage);
                         });
-
-                    $("#marvel-button").on("click", function () {
-                        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=8W8FPDg6Qr4GrXP5ra5RjiURl7m3kKon&tag=marvel"
-
-                        $.ajax({
-                            url: queryURL,
-                            method: "GET"
-                        })
-
-                            // After the data from the AJAX request comes back
-                            .then(function (response) {
-
-                                
-                                var imageUrl = response.data.image_original_url;
-
-                               
-                                var marvelImage = $("<img>");
-
-                               
-                                marvelImage.attr("src", imageUrl);
-                                marvelImage.attr("alt", "marvel image");
-
-                                
-                                $("#images").prepend(marvelImage);
-                            });
-                    })
                 });
+
+                $("#marvel-button").on("click", function () {
+                    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=8W8FPDg6Qr4GrXP5ra5RjiURl7m3kKon&tag=marvel"
+
+                    $.ajax({
+                        url: queryURL,
+                        method: "GET"
+                    })
+
+                        // After the data from the AJAX request comes back
+                        .then(function (response) {
+
+
+                            var imageUrl = response.data.image_original_url;
+
+
+                            var marvelImage = $("<img>");
+
+
+                            marvelImage.attr("src", imageUrl);
+                            marvelImage.attr("alt", "marvel image");
+
+
+                            $("#images").prepend(marvelImage);
+                        });
+                })
+
+
+                $("#cake-button").on("click", function () {
+                    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=8W8FPDg6Qr4GrXP5ra5RjiURl7m3kKon&tag=cake"
+
+                    $.ajax({
+                        url: queryURL,
+                        method: "GET"
+                    })
+
+                        // After the data from the AJAX request comes back
+                        .then(function (response) {
+
+
+                            var imageUrl = response.data.image_original_url;
+
+
+                            var cakeImage = $("<img>");
+
+
+                            cakeImage.attr("src", imageUrl);
+                            cakeImage.attr("alt", "cake image");
+
+
+                            $("#images").prepend(cakeImage);
+                        });
+                })
+
 
             </script>
         </div>
